@@ -1,0 +1,46 @@
+# Default inference + training config for ai-singing-voice-generator.
+# Override per-run with --config path/to/override.yaml (deep-merged).
+
+app:
+  name: "AI Singing Voice Generator"
+  version: "0.6.2"
+  device: "auto"          # auto | cuda | cpu
+  max_workers: 4
+  cache_dir: "temp/cache"
+
+audio:
+  sample_rate: 40000      # RVC v2 native
+  hop_length: 320
+  win_length: 1280
+  f0_method: "rmvpe"      # rmvpe | crepe | harvest | pm
+  f0_min: 50
+  f0_max: 1100
+  loudness_norm_lufs: -18.0
+
+conversion:
+  model_id: "singer_female_alt_v3"
+  index_ratio: 0.66       # faiss retrieval blend
+  filter_radius: 3
+  resample_sr: 0
+  rms_mix_rate: 0.25
+  protect: 0.33           # consonant protection
+  transpose_semitones: 0
+
+vocoder:
+  backend: "diffusion"    # diffusion | hifigan | world
+  diffusion_steps: 32
+  guidance_scale: 1.8
+  seed: 6767
+
+training:
+  epochs: 300
+  batch_size: 8
+  save_every: 50
+  segment_seconds: 3.7
+  pretrained_g: "models/checkpoints/pretrained_v2/f0G40k.pth"
+  pretrained_d: "models/checkpoints/pretrained_v2/f0D40k.pth"
+
+logging:
+  level: "INFO"
+  file: "logs/asvg.log"
+  rich_tracebacks: true
