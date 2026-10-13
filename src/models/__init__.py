@@ -1,0 +1,1 @@
+"""Model layer: voice model handle, retrieval index, architecture registry."""
