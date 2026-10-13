@@ -1,0 +1,1 @@
+"""Core engine layer: conversion pipeline orchestration, no I/O specifics."""
