@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Model weights & caches (huge, never commit)
+models/checkpoints/*.pth
+models/checkpoints/*.onnx
+models/checkpoints/*.ckpt
+models/embeddings/*.pt
+voice_bank/
+output/
+*.safetensors
+
+# Runtime artifacts
+*.log
+logs/
+runs/
+temp/
+tmp/
+.vsg_session.json
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
